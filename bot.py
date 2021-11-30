@@ -1,14 +1,15 @@
 import discord
 from discord import FFmpegPCMAudio
-import json
-from random import randint, choice
 from discord.ext import commands as cmd
 from top2000 import TOP2000
+from dotenv import load_dotenv
+import os
 
 client = cmd.Bot(command_prefix = '/')
 
 player = None
 top2000Bool = False
+load_dotenv()
 
 @client.event
 async def on_ready():
@@ -63,4 +64,4 @@ async def stop2000(ctx):
     player = None
     top2000Bool = False
 
-client.run('OTA5ODQxMjg5NzA3NjcxNjIz.YZKJuw.K35PpYB3gKSpOt9GO5HYc7bmQmU')
+client.run(os.getenv('BOT_TOKEN'))
